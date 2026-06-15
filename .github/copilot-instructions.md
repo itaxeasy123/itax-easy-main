@@ -8,6 +8,7 @@
 - **Database client:** `src/lib/db.js` — uses a singleton `PrismaClient` attached to `global` in dev to avoid connection exhaustion.
 - **Prisma schema:** `prisma/schema.prisma` — canonical DB model. Use `npm run generate` and `npm run db` (see `package.json`).
 
+
 **Build & Dev Workflows**
 - **Start dev server:** `npm run dev` (runs `next dev -p 3001`). The app expects port `3001` by default.
 - **Build & serve:** `npm run build` then `npm start` (production server on port `3001`).
