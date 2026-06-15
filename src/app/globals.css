@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Optimize performance for calculators */
+  .optimize-performance * {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+  
+  /* Better calculator loading experience */
+  .calculator-container {
+    min-height: 70vh;
+  }
+  
+  /* Page-specific performance optimizations */
+  .blog-page .non-essential-animation,
+  .products-page .non-essential-animation,
+  .apis-page .non-essential-animation,
+  .downloads-page .non-essential-animation,
+  .register-startup-page .non-essential-animation,
+  .profile-page .non-essential-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Optimize profile page specifically */
+  .profile-page {
+    content-visibility: auto;
+  }
+  
+  /* Improved rendering for profile page components */
+  .profile-container {
+    will-change: contents;
+    contain: paint;
+  }
+  
+  /* Improve page transition performance */
+  .page-transition-ready {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Instant appearance for calculator components */
+  .calculator-container * {
+    backface-visibility: hidden;
+  }
+  
+  /* Better Easy Service loading experience */
+  .easy-service-container {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Optimize Easy Service pages */
+  .easy-service-page * {
+    backface-visibility: hidden;
+  }
+  
+  /* Route transition optimization */
+  .route-transition {
+    pointer-events: none;
+  }
+  
+  /* Prevent layout shifts during page transitions */
+  body.route-transition * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  :root {
+    --primary: 216 70% 55%;
+    --secondary: 273 100% 36%;
+    --accent: 0 100% 50%;
+
+    --txt: 233 12% 13%;
+    --bg_1: 0 0% 98%;
+    --bg_2: 0 0% 90%;
+  }
+
+  .dark {
+    --primary: 216 70% 55%;
+    --secondary: 273 100% 36%;
+    --accent: 0 100% 50%;
+
+    --txt: 0 0% 98%;
+    --bg_1: 0 0% 05%;
+    --bg_2: 0 0% 15%;
+  }
+}
+
+.react-pdf__Page__textContent,
+.react-pdf__Page__annotations.annotationLayer {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Components */
+@layer components {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 5px;
+    width: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    border-radius: 5px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+  }
+
+  /* headings */
+  .heading-1 {
+    @apply p-2 font-extrabold lg:text-5xl text-4xl;
+  }
+  .heading-2 {
+    @apply p-2 font-extrabold lg:text-5xl text-3xl;
+  }
+  .heading-3 {
+    @apply p-2 font-bold lg:text-3xl text-2xl;
+  }
+  .heading-4 {
+    @apply p-2 font-bold lg:text-3xl text-2xl;
+  }
+  .heading-5 {
+    @apply p-2 font-semibold lg:text-2xl text-xl;
+  }
+  .heading-6 {
+    @apply p-2 font-semibold lg:text-lg text-lg;
+  }
+  /* Description */
+  .description {
+    @apply text-sm text-slate-800;
+  }
+  /* paragraphs */
+  .paragraph-xs {
+    @apply text-sm font-normal text-neutral-600;
+  }
+  .paragraph-sm {
+    @apply text-base font-normal text-neutral-600;
+  }
+  .paragraph-md {
+    @apply text-lg font-medium text-neutral-600;
+  }
+  .paragraph-lg {
+    @apply text-xl font-semibold text-neutral-800;
+  }
+  .paragraph-xl {
+    @apply text-2xl font-semibold text-neutral-950;
+  }
+  .paragraph-2xl {
+    @apply text-3xl font-bold text-neutral-950;
+  }
+
+  /* button */
+  .btn-primary {
+    @apply bg-primary text-white rounded-md px-4 py-3 focus:ring-4 focus:ring-blue-300 transition-all duration-200 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply inline-block px-6 py-2 rounded-md text-white bg-gray-500 hover:bg-gray-600 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  .btn-success {
+    @apply inline-block px-6 py-2 rounded-md text-white bg-green-500 hover:bg-green-600 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  .btn-danger {
+    @apply inline-block px-6 py-2 rounded-md text-white bg-red-500 hover:bg-red-600 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  .btn-warning {
+    @apply inline-block px-6 py-2 rounded-md text-white bg-orange-400 hover:bg-orange-500 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  .btn-info {
+    @apply inline-block px-6 py-2 rounded-md text-white bg-cyan-500 hover:bg-cyan-600 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  .btn-light {
+    @apply inline-block px-6 py-2 rounded-md text-black bg-gray-200 hover:bg-gray-300 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  .btn-dark {
+    @apply inline-block px-6 py-2 rounded-md text-white bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-[transform,_colors] duration-300;
+  }
+  /* spinner */
+  .spinner {
+    @apply animate-spin inline-block w-4 h-4 border-[3px] border-current border-t-transparent text-white rounded-full;
+  }
+  /* form */
+  .label {
+    @apply text-neutral-500 text-sm font-light tracking-tighter;
+  }
+  .input {
+    @apply block w-full rounded-md px-4 py-1 outline outline-1 outline-neutral-500/60 focus:outline-2 focus:outline-blue-500;
+  }
+  .select {
+    @apply block w-full rounded-md px-4 py-[5px] outline outline-1 outline-neutral-500/60 focus:outline-2 focus:outline-blue-500;
+  }
+}
+
+.textOver {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 45%;
+}
+
+/* ===== iTaxEasy branded loader — light "sheen" sweeps across the wordmark ===== */
+.itax-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.itax-loader-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 64px;
+}
+/* soft breathing halo behind the wordmark */
+.itax-loader-glow {
+  position: absolute;
+  inset: -40% -12%;
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    rgba(59, 130, 246, 0.28),
+    rgba(59, 130, 246, 0) 76%
+  );
+  filter: blur(8px);
+  z-index: 0;
+  animation: itaxGlow 2.6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.itax-loader-logo {
+  position: relative;
+  z-index: 1;
+  animation: itaxBreathe 2.6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+/* a band of light that sweeps across the logo glyphs only (masked by the logo) */
+.itax-loader-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: linear-gradient(
+    100deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  -webkit-mask: url('/logo.svg') center / 150px 64px no-repeat;
+          mask: url('/logo.svg') center / 150px 64px no-repeat;
+  mix-blend-mode: screen;
+  animation: itaxSheen 1.9s ease-in-out infinite;
+  will-change: background-position;
+}
+@keyframes itaxSheen {
+  0%   { background-position: 160% 0; }
+  55%  { background-position: -60% 0; }
+  100% { background-position: -60% 0; }
+}
+@keyframes itaxBreathe {
+  0%, 100% { transform: scale(1);     opacity: 0.9; }
+  50%      { transform: scale(1.035); opacity: 1; }
+}
+@keyframes itaxGlow {
+  0%, 100% { opacity: 0.45; transform: scale(0.92); }
+  50%     { opacity: 1;    transform: scale(1.12); }
+}
+/* slim indeterminate progress line */
+.itax-loader-line {
+  position: relative;
+  width: 132px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #e6ecff;
+  overflow: hidden;
+}
+.itax-loader-line::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #60a5fa, #1d4ed8);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  animation: itaxLine 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes itaxLine {
+  0%   { transform: translateX(-120%) scaleX(0.7); }
+  50%  { transform: translateX(120%)  scaleX(1.3); }
+  100% { transform: translateX(330%)  scaleX(0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .itax-loader-logo,
+  .itax-loader-glow,
+  .itax-loader-sheen,
+  .itax-loader-line::after {
+    animation: none;
+  }
+}

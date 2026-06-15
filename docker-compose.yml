@@ -1,0 +1,100 @@
+# version: '3.8'
+
+# services:
+#   # Next.js Frontend Application
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#       args:
+#         - NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+#         - NEXT_PUBLIC_URL=${NEXT_PUBLIC_URL:-http://localhost:8000}
+#         - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL:-http://localhost:8000}
+#         - NEXT_PUBLIC_BACK_URL=${NEXT_PUBLIC_BACK_URL:-http://localhost:8000}
+#         - NEXT_PUBLIC_PAY_URL=${NEXT_PUBLIC_PAY_URL:-http://localhost:8000}
+#         - NEXT_PUBLIC_BLAZ_URL=${NEXT_PUBLIC_BLAZ_URL}
+#         - NEXT_PUBLIC_MOM_ITAX_URL=${NEXT_PUBLIC_MOM_ITAX_URL}
+#         - NEXT_PUBLIC_LARAVEL_ITAX_URL=${NEXT_PUBLIC_LARAVEL_ITAX_URL}
+#         - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+#         - NEXT_PUBLIC_RAZORPAY_KEY_ID=${NEXT_PUBLIC_RAZORPAY_KEY_ID}
+#         - NEXT_PUBLIC_WEB_TOKEN=${NEXT_PUBLIC_WEB_TOKEN}
+#     container_name: itax-next-app
+#     restart: unless-stopped
+#     ports:
+#       - "${APP_PORT:-3001}:3001"
+#     environment:
+#       NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+#       NEXT_PUBLIC_URL: ${NEXT_PUBLIC_URL:-http://localhost:8000}
+#       NEXT_PUBLIC_BACKEND_URL: ${NEXT_PUBLIC_BACKEND_URL:-http://localhost:8000}
+#       NEXT_PUBLIC_BACK_URL: ${NEXT_PUBLIC_BACK_URL:-http://localhost:8000}
+#       NEXT_PUBLIC_PAY_URL: ${NEXT_PUBLIC_PAY_URL:-http://localhost:8000}
+#       NEXT_PUBLIC_BLAZ_URL: ${NEXT_PUBLIC_BLAZ_URL}
+#       NEXT_PUBLIC_MOM_ITAX_URL: ${NEXT_PUBLIC_MOM_ITAX_URL}
+#       NEXT_PUBLIC_LARAVEL_ITAX_URL: ${NEXT_PUBLIC_LARAVEL_ITAX_URL}
+#       NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+#       NEXT_PUBLIC_RAZORPAY_KEY_ID: ${NEXT_PUBLIC_RAZORPAY_KEY_ID}
+#       NEXT_PUBLIC_WEB_TOKEN: ${NEXT_PUBLIC_WEB_TOKEN}
+#     volumes:
+#       # Mount .env file if needed
+#       - ./.env:/app/.env:ro
+#     networks:
+#       - itax-network
+
+# networks:
+#   itax-network:
+#     driver: bridge
+
+
+
+
+
+
+version: '3.8'
+
+services:
+  # Next.js Frontend Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+        - NEXT_PUBLIC_URL=${NEXT_PUBLIC_URL:-http://localhost:8000}
+        - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL:-http://localhost:8000}
+        - NEXT_PUBLIC_BACK_URL=${NEXT_PUBLIC_BACK_URL:-http://localhost:8000}
+        - NEXT_PUBLIC_PAY_URL=${NEXT_PUBLIC_PAY_URL:-http://localhost:8000}
+        - NEXT_PUBLIC_BLAZ_URL=${NEXT_PUBLIC_BLAZ_URL}
+        # - NEXT_PUBLIC_MOM_ITAX_URL=${NEXT_PUBLIC_MOM_ITAX_URL}
+        # - NEXT_PUBLIC_LARAVEL_ITAX_URL=${NEXT_PUBLIC_LARAVEL_ITAX_URL}
+        - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+        - NEXT_PUBLIC_RAZORPAY_KEY_ID=${NEXT_PUBLIC_RAZORPAY_KEY_ID}
+        - NEXT_PUBLIC_WEB_TOKEN=${NEXT_PUBLIC_WEB_TOKEN}
+
+    container_name: itax-next-app
+    restart: unless-stopped
+
+    ports:
+      - "${APP_PORT:-3001}:3001"
+
+    environment:
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+      NEXT_PUBLIC_URL: ${NEXT_PUBLIC_URL:-http://localhost:8000}
+      NEXT_PUBLIC_BACKEND_URL: ${NEXT_PUBLIC_BACKEND_URL:-http://localhost:8000}
+      NEXT_PUBLIC_BACK_URL: ${NEXT_PUBLIC_BACK_URL:-http://localhost:8000}
+      NEXT_PUBLIC_PAY_URL: ${NEXT_PUBLIC_PAY_URL:-http://localhost:8000}
+      NEXT_PUBLIC_BLAZ_URL: ${NEXT_PUBLIC_BLAZ_URL}
+      # NEXT_PUBLIC_MOM_ITAX_URL: ${NEXT_PUBLIC_MOM_ITAX_URL}
+      # NEXT_PUBLIC_LARAVEL_ITAX_URL: ${NEXT_PUBLIC_LARAVEL_ITAX_URL}
+      NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+      NEXT_PUBLIC_RAZORPAY_KEY_ID: ${NEXT_PUBLIC_RAZORPAY_KEY_ID}
+      NEXT_PUBLIC_WEB_TOKEN: ${NEXT_PUBLIC_WEB_TOKEN}
+
+    volumes:
+      - ./.env:/app/.env:ro
+
+    networks:
+      - itax-network
+
+networks:
+  itax-network:
+    driver: bridge

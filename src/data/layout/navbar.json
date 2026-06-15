@@ -1,0 +1,47 @@
+{
+  "logo": {
+    "src": "/logo.svg",
+    "alt": "logo",
+    "href": "/",
+    "width": 56,
+    "height": 60
+  },
+
+  "menus": {
+    "ourProducts": [
+      {
+        "url": "/dashboard/itr/itr-filling/upload-form-16",
+        "menu": "Easy ITR",
+        "upcoming": false
+      }
+    ],
+
+    "ourServices": [
+      {
+        "menu": "Easy GST Links",
+        "subMenu": [
+          { "url": "/easyservice/searchbygstin", "menu": "Search by GSTIN" },
+          { "url": "/easyservice/searchbypan", "menu": "Search by PAN" },
+          { "url": "/easyservice/trackgstreturn", "menu": "Track GST Return" }
+        ]
+      }
+    ],
+
+    "financialCalculator": [
+      {
+        "menu": "Bank Calculators",
+        "subMenu": [
+          { "url": "/financialcal/sical", "menu": "Simple Interest Calculator" },
+          { "url": "/financialcal/cical", "menu": "Compound Interest" }
+        ]
+      }
+    ]
+  },
+
+  "navLinks": [
+    { "href": "/blogs", "label": "Blog" },
+    { "href": "/register-startup/registration", "label": "Register a Startup" },
+    { "href": "/apis/all_apis", "label": "APIs" },
+    { "href": "/downloads", "label": "Downloads" }
+  ]
+}

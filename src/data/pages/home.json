@@ -1,0 +1,117 @@
+{
+  "slug": "home",
+  "sections": [
+    {
+      "type": "hero",
+      "props": {
+        "upper": {
+          "mainHeading": "Ease of Doing Taxation",
+          "subHeading": "Download The App For Better Tax Filing Experience",
+          "button": "Upload Form 16",
+          "ctaLink": "/dashboard/itr/itr-filling/upload-form-16",
+          "image": "/Hero-ITR.gif"
+        }
+      }
+    },
+
+    {
+      "type": "services",
+      "props": {
+        "ourServicesCards": [
+          {
+            "heading": "Income Tax",
+            "items": [
+              {
+                "label": "Upload Form 16",
+                "link": "/dashboard/itr/itr-filling/upload-form-16"
+              },
+              {
+                "label": "ITR Calculator",
+                "link": "/dashboard/itr/calculator"
+              },
+              {
+                "label": "Advance Tax"
+              }
+            ]
+          },
+          {
+            "heading": "GST Services",
+            "items": [
+              {
+                "label": "GSTR-1",
+                "link": "/dashboard/gst/gstr1"
+              },
+              {
+                "label": "GSTR-3B",
+                "link": "/dashboard/gst/gstr3b"
+              },
+              {
+                "label": "GSTR-9"
+              }
+            ]
+          },
+          {
+            "heading": "Compliance & Others",
+            "items": [
+              {
+                "label": "Company Registration",
+                "link": "/dashboard/compliance/company-registration"
+              },
+              {
+                "label": "TDS Filing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+  "type": "ongoingProjects",
+  "props": {
+    "title": "Ongoing Projects",
+    "ongoingProjects": [
+      {
+        "heading": "Easy ITR Mobile App",
+        "image": "/images/home/ongoing_projects/app.avif"
+      },
+      {
+        "heading": "GST Automation",
+        "image": "/images/home/ongoing_projects/gst.avif"
+      }
+
+    ]
+  }
+}
+,
+
+    {
+      "type": "corporatePartners",
+      "props": {
+        "partners": []
+      }
+    },
+
+    {
+      "type": "userStats",
+      "props": {
+        "title": "User Insights"
+      }
+    },
+
+    {
+      "type": "insuranceCta",
+      "props": {}
+    },
+
+    {
+      "type": "appPromo",
+      "props": {}
+    },
+
+    {
+      "type": "incomeTaxInfo",
+      "props": {}
+    }
+  ]
+}

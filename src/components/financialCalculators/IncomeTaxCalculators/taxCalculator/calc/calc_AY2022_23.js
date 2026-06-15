@@ -1,0 +1,47 @@
+
+export function calculateNetIncomeTaxIndividual2223(income) {
+    if (income <= 500000) {
+        return { taxRate: 0, surcharge: 0, educationCess: 0 };
+    } else if (income <= 1000000) {
+        let tax = (income - 500000) * 0.2 + 12500;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    } else if (income > 1000000) {
+        let tax = (income - 1000000) * 0.3 + 112500;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    }
+}
+
+// senior citizen
+export function calculateNetIncomeTaxSeniorC2223(income) {
+    if (income <= 300000) {
+        return { taxRate: 0, surcharge: 0, educationCess: 0 };
+    } else if (income <= 500000) {
+        let tax = (income - 300000) * 0.05;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    } else if (income <= 1000000) {
+        let tax = (income - 500000) * 0.2 + 10000;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    } else if (income > 1000000) {
+        let tax = (income - 1000000) * 0.3 + 110000;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    }
+}
+// super senior citizen
+export function calculateNetIncomeTaxSuperSeniorC2223(income) {
+    if (income <= 500000) {
+        return { taxRate: 0, surcharge: 0, educationCess: 0 };
+    } else if (income <= 1000000) {
+        let tax = (income - 500000) * 0.2;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    } else if (income > 1000000) {
+        let tax = (income - 1000000) * 0.3 + 100000;
+        let eduCess = tax * 0.04;
+        return { taxRate: tax, surcharge: 0, educationCess: eduCess };
+    }
+}
