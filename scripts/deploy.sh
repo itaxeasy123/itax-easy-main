@@ -21,7 +21,7 @@ cd "$APP_DIR"
 export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 # shellcheck disable=SC1091
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-nvm use 18 >/dev/null
+nvm use 26 >/dev/null
 
 # .env is gitignored and must be provided on the server out-of-band.
 if [ ! -f "$APP_DIR/.env" ]; then
