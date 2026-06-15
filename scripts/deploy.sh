@@ -36,8 +36,16 @@ NEW_REF="$(git rev-parse HEAD)"
 echo "==> node $(node -v) | deploying $NEW_REF | rollback target $PREV_REF"
 
 build_and_start() {
-  echo "==> npm ci"
-  npm ci
+  # package-lock.json is gitignored in this repo, so it won't be on the server.
+  # Use the fast, reproducible `npm ci` only when a lockfile exists; otherwise
+  # fall back to a plain install.
+  if [ -f package-lock.json ]; then
+    echo "==> npm ci"
+    npm ci
+  else
+    echo "==> npm install (no lockfile)"
+    npm install --no-audit --no-fund
+  fi
   echo "==> prisma generate"
   npm run generate
   echo "==> next build"
