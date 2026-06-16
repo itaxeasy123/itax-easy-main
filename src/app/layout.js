@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
             <StoreProvider>
              <GstinProvider>
               <AppLayout>
-                <Suspense fallback={<Loader />}>
+                <Suspense fallback={<Loader fullScreen />}>
                   {children}
                 </Suspense>
               </AppLayout>

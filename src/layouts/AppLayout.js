@@ -15,7 +15,7 @@ export default function AppLayout({ children }) {
     return (
       <>
         <Navbar />
-        <Loader />
+        <Loader fullScreen />
       </>
     );
   }

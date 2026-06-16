@@ -9,7 +9,10 @@ let refreshPromise = null;
 export async function refreshAccessToken() {
   if (!refreshPromise) {
     refreshPromise = axios
-      .post(REFRESH_URL, {}, { withCredentials: true })
+      // timeout so a hung/unreachable backend can't trap the app on the auth
+      // loader forever — on timeout this rejects, loadAuth's finally runs, and
+      // authInitialized flips true so the login page renders.
+      .post(REFRESH_URL, {}, { withCredentials: true, timeout: 8000 })
       .then((res) => {
         const t = res?.data?.data?.token || null;
         setAccessToken(t);

@@ -77,11 +77,11 @@ export default function Home() {
 
       {/* ══ HERO ════════════════════════════════════════════════════════════ */}
       <section className="bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-20">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
 
             {/* Left */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
+            <div className="text-center md:text-left order-2 md:order-1">
               <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute h-full w-full rounded-full bg-blue-400 opacity-75" />
@@ -90,7 +90,7 @@ export default function Home() {
                 FY 2025-26 Filing Open
               </span>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] font-black text-slate-900 leading-[1.1] tracking-tight">
+              <h1 className="text-[2rem] sm:text-5xl md:text-[2.6rem] lg:text-[3.2rem] font-black text-slate-900 leading-[1.1] tracking-tight">
                 File Your ITR<br />
                 <span className="text-blue-600">Online.</span> Simple.<br />
                 Stress-Free.
@@ -113,11 +113,11 @@ export default function Home() {
                 />
               </div>
 
-              <p className="mt-5 text-slate-500 text-sm leading-relaxed max-w-md mx-auto lg:mx-0">
+              <p className="mt-5 text-slate-500 text-sm leading-relaxed max-w-md mx-auto md:mx-0">
                 iTaxEasy helps individuals, freelancers and businesses manage all their tax compliance — ITR, GST, TDS — from one secure dashboard.
               </p>
 
-              <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <button
                   onClick={() => router.push('/dashboard/itr-filing')}
                   className="bg-blue-600 text-white font-bold px-7 py-3 rounded-xl text-sm shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 transition-all flex items-center gap-2 justify-center"
@@ -134,7 +134,7 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start">
+              <div className="mt-6 flex flex-wrap gap-x-3 gap-y-2 justify-center md:justify-start">
                 {['100% Secure', 'CA Verified', 'No Hidden Fees', 'Instant e-Ack'].map(t => (
                   <span key={t} className="flex items-center gap-1 text-slate-500 text-xs">
                     <Icon icon="mdi:check-circle" className="text-green-500 text-sm" />
@@ -144,8 +144,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right */}
-            <div className="order-1 lg:order-2 flex justify-center">
+            {/* Right — hidden on mobile, shown from tablet up */}
+            <div className="order-1 md:order-2 hidden md:flex justify-center">
               <Image
                 src="/Hero-ITR.gif"
                 alt="iTaxEasy ITR Filing"
@@ -153,7 +153,7 @@ export default function Home() {
                 height={380}
                 priority
                 unoptimized
-                className="w-full max-w-[440px]"
+                className="w-full max-w-[300px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[440px] h-auto"
               />
             </div>
           </div>
