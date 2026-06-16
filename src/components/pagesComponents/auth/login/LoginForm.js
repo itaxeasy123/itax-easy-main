@@ -107,11 +107,19 @@ export default function LoginForm() {
         }
 
         const status = error?.response?.status;
-        const message = error?.response?.data?.message;
+        const data = error?.response?.data;
+        const message = data?.message;
 
-        if (status === 301) {
+        // Unverified account: backend returns 403 with needsVerification and a
+        // fresh otp_key. Send the user to the OTP screen; on success it
+        // auto-logs them in (from=login) and lands them on the landing page.
+        if (status === 403 && data?.needsVerification) {
           toast.info(message || 'Please verify your email');
-          router.push(`/verify-otp?email=${encodeURIComponent(email)}`);
+          const otpKey = data?.data?.otp_key;
+          const qs = new URLSearchParams({ email });
+          if (otpKey != null) qs.set('otp_key', String(otpKey));
+          qs.set('from', 'login');
+          router.push(`/verify-otp?${qs.toString()}`);
           return;
         }
 

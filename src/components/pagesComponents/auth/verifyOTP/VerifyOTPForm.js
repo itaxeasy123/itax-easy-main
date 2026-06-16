@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import userbackAxios from '@/lib/userbackAxios';
+import { useAuth } from '@/context/AuthContext';
 
 const formClassName = {
   Label: 'text-sm font-medium',
@@ -16,9 +17,13 @@ const formClassName = {
 
 export default function VerifyOTPForm() {
   const router = useRouter();
+  const { handleLoginSuccess } = useAuth();
   const searchParams = useSearchParams();
   const email = searchParams.get('email');
   const otp_key = parseInt(searchParams.get('otp_key'), 10);
+  // Where the user came from: 'login' (unverified login) auto-logs-in and goes
+  // to the landing page; anything else (signup) sends them to /login.
+  const from = searchParams.get('from');
 
   const {
     register,
@@ -85,11 +90,28 @@ export default function VerifyOTPForm() {
         otp_key: otpKey,
         otp,
       });
-      console.log(response);
-      console.log(response.status);
       if (response.status === 200) {
         toast.success('verified successfully');
-        // router.push('/login') // DEV-OFF;
+
+        const token = response?.data?.data?.token;
+        const user = response?.data?.data?.user;
+
+        if (from === 'login' && token && user) {
+          // Came from the login screen: log the now-verified user straight in
+          // and drop them on the landing page.
+          handleLoginSuccess(token, {
+            id: user.id,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            userType: user.userType,
+            verified: user.verified,
+          });
+          router.replace('/');
+        } else {
+          // Came from signup: account is verified, send them to log in.
+          router.push('/login');
+        }
       }
     } catch (error) {
       console.log(error);
